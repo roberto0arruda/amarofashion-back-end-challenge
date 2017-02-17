@@ -19,12 +19,12 @@ Você pode criar a aplicação como bem entender e a única regra é: usar a lin
     Valor do Saque: R$ 80,00 – Resultado Esperado: Entregar 1 nota de R$50,00 1 nota de R$ 20,00 e 1 nota de R$ 10,00.
 
 ## Desafio 2 - Explosão de string
-    Desenvolva uma classe que receba a string e divida essa string apartir de um delimitador, é proibido utilizar a função 'explode()'.
+    Desenvolva uma classe que receba a string e divida essa string a partir de um delimitador, é proibido utilizar a função 'explode()'.
     Exemplo:
         A entrada 'aaa,bbb,ccc,ddd' terá como saída ['aaa', 'bbb', 'ccc', 'ddd']
 
 ## Desafio 3 - Construção de API
-A seguir temos o link para o banco de dados e o diagrama EER.
+A seguir temos o link para o banco de dados e o diagrama ER.
 
 [Banco de dados](db.sql)
 
@@ -47,6 +47,8 @@ A seguir temos o link para o banco de dados e o diagrama EER.
 
     - N = número de tags em comum entre os dois produtos (N >= 0)
     - M = número de categorias em comum entre os dois produtos (M >= 0)
+    - e = número de euler
+
 
 ### Endpoints API
  - GET /products : lista todos os produtos
