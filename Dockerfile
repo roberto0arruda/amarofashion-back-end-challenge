@@ -8,10 +8,10 @@ RUN rm -rf /var/www/html
 RUN ln -s public html
 
 # Create a group and user
-RUN addgroup -S apigroup && adduser -S apiuser -G apigroup
+RUN addgroup -S --gid 1000 apigroup && adduser -S --uid 1000 apiuser -G apigroup
 
 # Tell docker that all future commands should run as the apiuser user
-# USER apiuser
+USER apiuser
 
 EXPOSE 9000
 ENTRYPOINT [ "php-fpm" ]
