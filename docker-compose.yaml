@@ -20,7 +20,7 @@ services:
       - api
 
   api:
-    build: .
+    image: roberto0arruda/php-fpm
     container_name: challenge-api
     volumes:
       - .:/var/www
@@ -30,18 +30,20 @@ services:
       - network
     # depends_on:
     #   - mysql
-  # mysql:
-  #   image: mysql:5.7
-  #   command: --innodb-use-native-aio=0
-  #   restart: always
-  #   tty: true
-  #   volumes:
-  #     - .docker/data/mysql:/var/lib/mysql
-  #   environment:
-  #     - MYSQL_DATABASE=${DB_DATABASE}
-  #     - MYSQL_USER=${DB_USERNAME}
-  #     - MYSQL_ROOT_PASSWORD=${DB_PASSWORD}
-  #   expose:
-  #     - 3306
-  #   networks:
-  #     - network
+
+  mysql:
+    image: mysql:5.7
+    command: --innodb-use-native-aio=0
+    restart: always
+    tty: true
+    volumes:
+      - ./vendor/mysqldb:/var/lib/mysql
+    environment:
+      - MYSQL_DATABASE=${DB_DATABASE}
+      - MYSQL_USER=${DB_USERNAME}
+      - MYSQL_PASSWORD=${DB_PASSWORD}
+      - MYSQL_ROOT_PASSWORD=${DB_PASSWORD}
+    expose:
+      - 3306
+    networks:
+      - network
